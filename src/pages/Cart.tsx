@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { Button } from "@/components/ui/button";
 import { 
@@ -9,14 +9,18 @@ import {
   Minus, 
   Plus, 
   ShoppingBag,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "../context/AuthContext";
 
 const Cart = () => {
-  const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart } = useCart();
+  const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart, isLoading } = useCart();
+  const { isAuthenticated } = useAuth();
   const [showEmptyConfirm, setShowEmptyConfirm] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleQuantityChange = (productId: number, newQuantity: number) => {
     updateQuantity(productId, newQuantity);
@@ -41,6 +45,19 @@ const Cart = () => {
     });
   };
 
+  const handleCheckout = () => {
+    if (!isAuthenticated) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to proceed to checkout.",
+        variant: "destructive",
+      });
+      navigate("/auth", { state: { from: "/cart" } });
+    } else {
+      navigate("/checkout");
+    }
+  };
+
   const calculateTotal = () => {
     const subtotal = totalPrice;
     const shipping = subtotal > 0 ? 99 : 0;
@@ -49,6 +66,17 @@ const Cart = () => {
   };
 
   const { subtotal, shipping, total } = calculateTotal();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen pt-24 pb-16 px-4 md:px-8 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary-600 mb-4" />
+          <p className="text-gray-600">Loading your cart...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (totalItems === 0) {
     return (
@@ -237,7 +265,7 @@ const Cart = () => {
                 </div>
               </div>
               
-              <Button className="w-full mt-6 py-6">
+              <Button className="w-full mt-6 py-6" onClick={handleCheckout}>
                 Proceed to Checkout
               </Button>
               

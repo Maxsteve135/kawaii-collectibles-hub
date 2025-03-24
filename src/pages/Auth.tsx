@@ -1,9 +1,10 @@
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { User } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 interface FormData {
   email: string;
@@ -22,6 +23,24 @@ const Auth = () => {
   });
   const { toast } = useToast();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { signIn, signUp, resetPassword, isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    // Check if we're returning from a password reset
+    const queryParams = new URLSearchParams(location.search);
+    if (queryParams.get('reset') === 'true') {
+      toast({
+        title: "Password reset link clicked",
+        description: "Please set your new password below.",
+      });
+    }
+
+    // Redirect if already authenticated
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, location, navigate, toast]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -62,42 +81,30 @@ const Auth = () => {
     return true;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!validateForm()) return;
     
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      
+    try {
       if (showForgotPassword) {
-        toast({
-          title: "Password reset email sent",
-          description: `We've sent a password reset link to ${formData.email}. Please check your inbox.`,
-        });
+        await resetPassword(formData.email);
         setShowForgotPassword(false);
-        return;
-      }
-      
-      if (isLogin) {
-        // Login success simulation
-        toast({
-          title: "Welcome back!",
-          description: "You have successfully logged in.",
-        });
+      } else if (isLogin) {
+        await signIn(formData.email, formData.password);
+        navigate('/');
       } else {
-        // Register success simulation
-        toast({
-          title: "Account created!",
-          description: "Your account has been created successfully.",
-        });
+        await signUp(formData.email, formData.password);
+        // Don't navigate here - user needs to verify email first
       }
-      
-      navigate('/');
-    }, 1500);
+    } catch (error) {
+      console.error("Authentication error:", error);
+      // Error notifications are handled in the auth context
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

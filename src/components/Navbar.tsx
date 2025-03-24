@@ -2,14 +2,17 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, User, Search, Menu, X } from "lucide-react";
+import { ShoppingCart, User, Menu, X, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { totalItems } = useCart();
+  const { isAuthenticated, signOut, user } = useAuth();
   const location = useLocation();
 
   // Check if user has scrolled
@@ -24,7 +27,13 @@ const Navbar = () => {
   // Close mobile menu when navigating
   useEffect(() => {
     setMobileMenuOpen(false);
+    setUserMenuOpen(false);
   }, [location.pathname]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    setUserMenuOpen(false);
+  };
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -69,11 +78,50 @@ const Navbar = () => {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-4">
-          <Link to="/auth">
-            <Button variant="ghost" size="icon" className="relative">
+          <div className="relative">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="relative"
+              onClick={() => setUserMenuOpen(!userMenuOpen)}
+            >
               <User size={20} />
+              {isAuthenticated && (
+                <span className="absolute -top-1 -right-1 bg-green-500 rounded-full w-2 h-2"></span>
+              )}
             </Button>
-          </Link>
+            
+            {/* User dropdown menu */}
+            {userMenuOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10 animate-fade-in">
+                {isAuthenticated ? (
+                  <>
+                    <div className="px-4 py-2 border-b border-gray-100">
+                      <p className="text-sm font-medium text-gray-900 truncate">
+                        {user?.email}
+                      </p>
+                    </div>
+                    <button
+                      onClick={handleSignOut}
+                      className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
+                      <LogOut size={16} className="mr-2" />
+                      Sign out
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    to="/auth"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={() => setUserMenuOpen(false)}
+                  >
+                    Sign in
+                  </Link>
+                )}
+              </div>
+            )}
+          </div>
+          
           <Link to="/cart">
             <Button variant="ghost" size="icon" className="relative">
               <ShoppingCart size={20} />
@@ -127,15 +175,30 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/auth"
-              className="font-medium py-2 transition-colors text-gray-700"
-            >
-              <div className="flex items-center space-x-2">
-                <User size={18} />
-                <span>Account</span>
-              </div>
-            </Link>
+            {isAuthenticated ? (
+              <>
+                <div className="py-2 border-t border-gray-100 mt-2">
+                  <p className="text-sm text-gray-500">{user?.email}</p>
+                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="flex items-center font-medium py-2 text-red-600"
+                >
+                  <LogOut size={18} className="mr-2" />
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/auth"
+                className="font-medium py-2 transition-colors text-gray-700"
+              >
+                <div className="flex items-center space-x-2">
+                  <User size={18} />
+                  <span>Sign In</span>
+                </div>
+              </Link>
+            )}
           </nav>
         </div>
       )}
