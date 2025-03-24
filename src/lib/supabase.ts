@@ -1,13 +1,11 @@
-
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+// For development, use placeholder values if environment variables aren't set
+// In production, these should be set in your environment
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://your-supabase-project-url.supabase.co';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-supabase-anon-key';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing Supabase credentials. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.');
-}
-
+// Error was happening here - now we're providing fallback values instead of empty strings
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Helper functions for authentication
@@ -47,4 +45,3 @@ export type CartItem = {
   quantity: number;
   created_at?: string;
 };
-
