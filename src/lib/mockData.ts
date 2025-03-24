@@ -29,11 +29,11 @@ export const products: Product[] = [
     category: "poster",
     price: 699,
     rating: 4.8,
-    mainImage: "https://images.unsplash.com/photo-1614583225154-5fcddf81d8ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YW5pbWV8fHx8fHwxNjk0MTAyNTkw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/VHG6QeB.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1614583225154-5fcddf81d8ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YW5pbWV8fHx8fHwxNjk0MTAyNTkw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1578632767115-351597cf2477?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1579047259646-c30b90f8b1a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/VHG6QeB.jpeg",
+      "https://i.imgur.com/8zRuSRH.jpeg",
+      "https://i.imgur.com/JQQULom.jpeg"
     ],
     description: "High-quality wall poster featuring Tanjiro and Nezuko from Demon Slayer. This premium art print is made with archival inks on heavy matte paper for a stunning visual display. Perfect for any anime fan's room or collection.",
     stock: 50
@@ -44,11 +44,11 @@ export const products: Product[] = [
     category: "figure",
     price: 2499,
     rating: 4.9,
-    mainImage: "https://images.unsplash.com/photo-1605488000363-f71ed0dd678e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YWN0aW9uIGZpZ3VyZXx8fHx8fDE2OTQxMDI4MjA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/tWCnTpU.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1605488000363-f71ed0dd678e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YWN0aW9uIGZpZ3VyZXx8fHx8fDE2OTQxMDI4MjA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1581557991964-2d172fe440a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/tWCnTpU.jpeg",
+      "https://i.imgur.com/d7W8oQo.jpeg",
+      "https://i.imgur.com/EvZrMYl.jpeg"
     ],
     description: "Highly detailed action figure of Levi Ackerman from Attack on Titan. This meticulously crafted figure stands 24cm tall and features multiple articulation points for dynamic posing. Includes 3D maneuver gear accessories and display stand.",
     stock: 25
@@ -59,10 +59,10 @@ export const products: Product[] = [
     category: "keychain",
     price: 349,
     rating: 4.5,
-    mainImage: "https://images.unsplash.com/photo-1602178141781-ecc8d388c946?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8a2V5Y2hhaW58fHx8fHwxNjk0MTAyODQ0&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/4CQsEE7.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1602178141781-ecc8d388c946?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8a2V5Y2hhaW58fHx8fHwxNjk0MTAyODQ0&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1602178093795-49c91dae491a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/4CQsEE7.jpeg",
+      "https://i.imgur.com/cUQ9Rtn.jpeg"
     ],
     description: "Cute and durable keychain featuring Izuku 'Deku' Midoriya from My Hero Academia. Made from high-quality PVC material with metal ring. Perfect for keys, bags, or as a collectible.",
     stock: 100
@@ -73,10 +73,10 @@ export const products: Product[] = [
     category: "poster",
     price: 899,
     rating: 4.7,
-    mainImage: "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9zdGVyfHx8fHx8MTY5NDEwMjg2OQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/jrVFfXl.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9zdGVyfHx8fHx8MTY5NDEwMjg2OQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1576566476613-c6b517e0c4ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/jrVFfXl.jpeg",
+      "https://i.imgur.com/GkzpT9r.jpeg"
     ],
     description: "Premium art print featuring Monkey D. Luffy from One Piece. This limited edition poster is printed on high-quality museum-grade paper with archival inks that resist fading. Each print comes with a certificate of authenticity.",
     stock: 30
@@ -87,10 +87,10 @@ export const products: Product[] = [
     category: "figure",
     price: 1999,
     rating: 4.6,
-    mainImage: "https://images.unsplash.com/photo-1601406168303-427240ba1307?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTY5NDEwMjkwOA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/xUzJSZf.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1601406168303-427240ba1307?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dG95fHx8fHx8MTY5NDEwMjkwOA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/xUzJSZf.jpeg",
+      "https://i.imgur.com/tNFUJ8I.jpeg"
     ],
     description: "Detailed Kakashi Hatake figure from Naruto Shippuden. This 22cm tall figure captures Kakashi in his iconic pose with Chidori. Features incredible detail from his Sharingan eye to his ninja vest. Comes with a display base.",
     stock: 15
@@ -101,10 +101,10 @@ export const products: Product[] = [
     category: "plushie",
     price: 799,
     rating: 4.9,
-    mainImage: "https://images.unsplash.com/photo-1554825203-68321ddde262?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cGx1c2h8fHx8fHwxNjk0MTAyOTMx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/CrGGmDi.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1554825203-68321ddde262?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cGx1c2h8fHx8fHwxNjk0MTAyOTMx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1596644426816-e9e46b74ee15?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/CrGGmDi.jpeg",
+      "https://i.imgur.com/rMoQCUn.jpeg"
     ],
     description: "Soft and huggable No-Face (Kaonashi) plushie from Studio Ghibli's Spirited Away. This 30cm plush toy is made from premium soft materials and is perfect for cuddling or display. Official Studio Ghibli merchandise.",
     stock: 40
@@ -115,10 +115,10 @@ export const products: Product[] = [
     category: "poster",
     price: 599,
     rating: 4.7,
-    mainImage: "https://images.unsplash.com/photo-1541562232579-512a21360020?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YW5pbWV8fHx8fHwxNjk0MTAyOTU3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/H5x5N6R.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1541562232579-512a21360020?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YW5pbWV8fHx8fHwxNjk0MTAyOTU3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1565799557186-1cf72e423a04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/H5x5N6R.jpeg",
+      "https://i.imgur.com/y4Otfnp.jpeg"
     ],
     description: "Dynamic poster featuring Goku in his powerful Ultra Instinct form from Dragon Ball Z. This high-quality print captures all the energy and detail of this iconic transformation. Printed on premium paper with vibrant colors.",
     stock: 60
@@ -129,10 +129,10 @@ export const products: Product[] = [
     category: "figure",
     price: 2899,
     rating: 5.0,
-    mainImage: "https://images.unsplash.com/photo-1595422656857-01a84e3ff2ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZmlndXJpbmV8fHx8fHwxNjk0MTAyOTgx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
+    mainImage: "https://i.imgur.com/LMeIrWj.jpeg",
     images: [
-      "https://images.unsplash.com/photo-1595422656857-01a84e3ff2ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8ZmlndXJpbmV8fHx8fHwxNjk0MTAyOTgx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080",
-      "https://images.unsplash.com/photo-1566577134665-2c674085abf7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      "https://i.imgur.com/LMeIrWj.jpeg",
+      "https://i.imgur.com/JgYgMH5.jpeg"
     ],
     description: "Premium Gojo Satoru figure from Jujutsu Kaisen. This highly detailed 25cm figure captures Gojo's calm yet powerful presence with his iconic blindfold. Features special effects pieces to recreate his Infinity technique. Limited edition.",
     stock: 10
