@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductById, getReviewsByProductId, Product, Review } from "../lib/mockData";
@@ -14,6 +13,8 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ProductCard from "../components/ProductCard";
+import ImageWithFallback from "../components/ImageWithFallback";
+import { getSafeImageUrl } from "../utils/imageUtils";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -30,7 +31,6 @@ const ProductDetails = () => {
   useEffect(() => {
     if (!id) return;
 
-    // Simulate loading
     setIsLoading(true);
     
     const productId = parseInt(id);
@@ -40,11 +40,9 @@ const ProductDetails = () => {
       setProduct(fetchedProduct);
       setCurrentImageIndex(0);
       
-      // Fetch reviews
       const fetchedReviews = getReviewsByProductId(productId);
       setReviews(fetchedReviews);
       
-      // Get related products (same category but not same product)
       const related = getProductById(productId)?.category 
         ? getProductById(productId)!.category 
         : "";
@@ -59,7 +57,6 @@ const ProductDetails = () => {
       navigate("/404");
     }
     
-    // Simulate network delay
     setTimeout(() => {
       setIsLoading(false);
     }, 800);
@@ -100,7 +97,6 @@ const ProductDetails = () => {
       <div className="min-h-screen pt-24 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 animate-pulse">
-            {/* Image Skeleton */}
             <div className="md:w-1/2 space-y-4">
               <div className="bg-gray-200 rounded-xl aspect-square"></div>
               <div className="flex space-x-2">
@@ -110,7 +106,6 @@ const ProductDetails = () => {
               </div>
             </div>
             
-            {/* Details Skeleton */}
             <div className="md:w-1/2 space-y-6">
               <div className="h-4 bg-gray-200 rounded w-1/3"></div>
               <div className="h-8 bg-gray-200 rounded w-3/4"></div>
@@ -131,7 +126,6 @@ const ProductDetails = () => {
   return (
     <div className="min-h-screen pt-24 pb-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Breadcrumbs */}
         <nav className="mb-6 text-sm">
           <ol className="flex items-center space-x-2">
             <li>
@@ -156,19 +150,16 @@ const ProductDetails = () => {
           </ol>
         </nav>
 
-        {/* Product Details */}
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12 mb-16">
-          {/* Product Images */}
           <div className="md:w-1/2">
-            {/* Main Image */}
             <div className="relative mb-4 rounded-xl overflow-hidden bg-white aspect-square">
-              <img
-                src={product.images[currentImageIndex]}
+              <ImageWithFallback
+                src={getSafeImageUrl(product, currentImageIndex)}
                 alt={product.name}
+                category={product.category}
                 className="w-full h-full object-contain"
               />
               
-              {/* Image Navigation Arrows */}
               <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow transition-all"
@@ -183,7 +174,6 @@ const ProductDetails = () => {
               </button>
             </div>
             
-            {/* Thumbnail Navigation */}
             <div className="flex space-x-2 overflow-x-auto pb-2">
               {product.images.map((image, index) => (
                 <button
@@ -195,9 +185,10 @@ const ProductDetails = () => {
                       : "border-transparent opacity-70 hover:opacity-100"
                   }`}
                 >
-                  <img
+                  <ImageWithFallback
                     src={image}
                     alt={`${product.name} thumbnail ${index + 1}`}
+                    category={product.category}
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -205,19 +196,15 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          {/* Product Info */}
           <div className="md:w-1/2">
-            {/* Category */}
             <div className="mb-2">
               <span className="text-sm text-gray-500 uppercase tracking-wider">
                 {product.category}
               </span>
             </div>
 
-            {/* Product Name */}
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
-            {/* Rating */}
             <div className="flex items-center mb-6">
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
@@ -234,7 +221,6 @@ const ProductDetails = () => {
               </span>
             </div>
 
-            {/* Price */}
             <div className="mb-6">
               <p className="text-3xl font-bold text-gray-900">₹{product.price.toLocaleString()}</p>
               <p className="text-sm text-gray-500 mt-1">
@@ -242,12 +228,10 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            {/* Description */}
             <div className="mb-8">
               <p className="text-gray-600 leading-relaxed">{product.description}</p>
             </div>
 
-            {/* Stock Status */}
             <div className="mb-6">
               <p className={`text-sm font-medium ${
                 product.stock > 0 
@@ -260,9 +244,7 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            {/* Add to Cart */}
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              {/* Quantity Selector */}
               <div className="flex items-center border border-gray-200 rounded-lg">
                 <button
                   onClick={() => handleQuantityChange(-1)}
@@ -281,7 +263,6 @@ const ProductDetails = () => {
                 </button>
               </div>
 
-              {/* Add to Cart Button */}
               <Button
                 onClick={handleAddToCart}
                 disabled={product.stock <= 0}
@@ -294,7 +275,6 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        {/* Reviews Section */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold mb-8">Customer Reviews</h2>
           
@@ -342,7 +322,6 @@ const ProductDetails = () => {
           )}
         </div>
 
-        {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div>
             <h2 className="text-2xl font-bold mb-8">You Might Also Like</h2>

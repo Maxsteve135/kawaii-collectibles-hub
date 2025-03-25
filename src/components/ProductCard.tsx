@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { handleImageError, getSafeImageUrl } from "../utils/imageUtils";
 
 interface ProductCardProps {
   product: Product;
@@ -43,9 +44,9 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden aspect-[3/4]">
-        {/* Product Image */}
+        {/* Product Image with Error Handling */}
         <img
-          src={product.mainImage}
+          src={getSafeImageUrl(product)}
           alt={product.name}
           className={cn(
             "w-full h-full object-cover transition-all duration-500",
@@ -53,6 +54,7 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
             isHovered ? "scale-105" : "scale-100"
           )}
           onLoad={() => setImageLoaded(true)}
+          onError={(e) => handleImageError(e, product.category)}
         />
 
         {/* Quick Add Button */}

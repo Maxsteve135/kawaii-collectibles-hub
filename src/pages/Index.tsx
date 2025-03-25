@@ -4,6 +4,8 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import ImageWithFallback from "../components/ImageWithFallback";
+import { DEFAULT_CATEGORY_IMAGES } from "../utils/imageUtils";
 
 const Index = () => {
   const categories = [
@@ -12,24 +14,28 @@ const Index = () => {
       image: "https://www.shutterstock.com/shutterstock/photos/1951830210/display_1500/stock-photo-taipei-taiwan-june-anime-posters-are-for-sale-the-shelves-are-full-of-anime-action-1951830210.jpg",
       link: "/shop?category=poster",
       description: "Premium anime art prints for your walls",
+      category: "poster" as const,
     },
     {
       name: "Figures",
       image: "https://www.shutterstock.com/shutterstock/photos/1940234269/display_1500/stock-photo-bangkok-thailand-may-action-figure-character-from-naruto-anime-japan-animation-cartoon-1940234269.jpg",
       link: "/shop?category=figure",
       description: "Detailed collectible figures of your favorite characters",
+      category: "figure" as const,
     },
     {
       name: "Keychains",
       image: "https://www.shutterstock.com/shutterstock/photos/2277030036/display_1500/stock-photo-minsk-belarus-january-izuku-midoriya-deku-keychain-from-the-anime-my-hero-academia-on-a-2277030036.jpg",
       link: "/shop?category=keychain",
       description: "Cute and collectible anime keychains",
+      category: "keychain" as const,
     },
     {
       name: "Plushies",
       image: "https://www.shutterstock.com/shutterstock/photos/1902244096/display_1500/stock-photo-plush-toy-kaonashi-no-face-spirited-away-isolated-on-white-background-1902244096.jpg",
       link: "/shop?category=plushie",
       description: "Soft and huggable character plushies",
+      category: "plushie" as const,
     },
   ];
 
@@ -69,9 +75,11 @@ const Index = () => {
                   }}
                 >
                   <div className="relative h-60 overflow-hidden">
-                    <img
+                    <ImageWithFallback
                       src={category.image}
                       alt={category.name}
+                      fallbackSrc={DEFAULT_CATEGORY_IMAGES[category.category]}
+                      category={category.category}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70"></div>
