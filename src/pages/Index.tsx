@@ -11,28 +11,28 @@ const Index = () => {
   const categories = [
     {
       name: "Posters",
-      image: "https://www.shutterstock.com/shutterstock/photos/1951830210/display_1500/stock-photo-taipei-taiwan-june-anime-posters-are-for-sale-the-shelves-are-full-of-anime-action-1951830210.jpg",
+      image: "/lovable-uploads/9aa54037-3944-4d19-95c5-ef0399eca2a0.png",
       link: "/shop?category=poster",
       description: "Premium anime art prints for your walls",
       category: "poster" as const,
     },
     {
       name: "Figures",
-      image: "https://www.shutterstock.com/shutterstock/photos/1940234269/display_1500/stock-photo-bangkok-thailand-may-action-figure-character-from-naruto-anime-japan-animation-cartoon-1940234269.jpg",
+      image: "/lovable-uploads/c5bf4ba3-74bc-46d3-ba9b-705c0f4c8602.png",
       link: "/shop?category=figure",
       description: "Detailed collectible figures of your favorite characters",
       category: "figure" as const,
     },
     {
       name: "Keychains",
-      image: "https://www.shutterstock.com/shutterstock/photos/2277030036/display_1500/stock-photo-minsk-belarus-january-izuku-midoriya-deku-keychain-from-the-anime-my-hero-academia-on-a-2277030036.jpg",
+      image: "/lovable-uploads/b147f7c9-efc8-41d2-83f4-e0f0f2397e8d.png",
       link: "/shop?category=keychain",
       description: "Cute and collectible anime keychains",
       category: "keychain" as const,
     },
     {
       name: "Plushies",
-      image: "https://www.shutterstock.com/shutterstock/photos/1902244096/display_1500/stock-photo-plush-toy-kaonashi-no-face-spirited-away-isolated-on-white-background-1902244096.jpg",
+      image: "/lovable-uploads/da7ed99c-f587-4176-b923-ff3757ed8b3c.png",
       link: "/shop?category=plushie",
       description: "Soft and huggable character plushies",
       category: "plushie" as const,
@@ -81,6 +81,7 @@ const Index = () => {
                       fallbackSrc={DEFAULT_CATEGORY_IMAGES[category.category]}
                       category={category.category}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      priority={true}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70"></div>
                   </div>

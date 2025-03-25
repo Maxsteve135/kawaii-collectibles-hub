@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { handleImageError, getSafeImageUrl } from "../utils/imageUtils";
+import ImageWithFallback from "./ImageWithFallback";
+import { getSafeImageUrl, getAppropriateAnimeImage } from "../utils/imageUtils";
 
 interface ProductCardProps {
   product: Product;
@@ -15,10 +16,14 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, featured = false }: ProductCardProps) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCart();
   const { toast } = useToast();
+
+  // Determine the best image to show
+  const productImage = product.useCustomImages 
+    ? getAppropriateAnimeImage(product) 
+    : getSafeImageUrl(product);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -45,16 +50,15 @@ const ProductCard = ({ product, featured = false }: ProductCardProps) => {
     >
       <div className="relative overflow-hidden aspect-[3/4]">
         {/* Product Image with Error Handling */}
-        <img
-          src={getSafeImageUrl(product)}
+        <ImageWithFallback
+          src={productImage}
           alt={product.name}
+          category={product.category}
           className={cn(
             "w-full h-full object-cover transition-all duration-500",
-            imageLoaded ? "image-loaded" : "image-blur-loading",
             isHovered ? "scale-105" : "scale-100"
           )}
-          onLoad={() => setImageLoaded(true)}
-          onError={(e) => handleImageError(e, product.category)}
+          priority={featured}
         />
 
         {/* Quick Add Button */}

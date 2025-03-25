@@ -10,8 +10,11 @@ const FeaturedProducts = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Get featured products (just use first 4 for this demo)
-  const featuredProducts = products.slice(0, 4);
+  // Get featured products with custom image flag enabled
+  const featuredProducts = products.slice(0, 4).map(product => ({
+    ...product,
+    useCustomImages: true // Enable custom images for featured products
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
