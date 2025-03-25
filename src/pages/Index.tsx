@@ -9,25 +9,25 @@ const Index = () => {
   const categories = [
     {
       name: "Posters",
-      image: "https://images.unsplash.com/photo-1613376023733-0a73315d9b06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cG9zdGVyfHx8fHx8MTY5NDEwMjg2OQ&ixlib=rb-4.0.3&q=80",
+      image: "https://www.shutterstock.com/shutterstock/photos/1951830210/display_1500/stock-photo-taipei-taiwan-june-anime-posters-are-for-sale-the-shelves-are-full-of-anime-action-1951830210.jpg",
       link: "/shop?category=poster",
       description: "Premium anime art prints for your walls",
     },
     {
       name: "Figures",
-      image: "https://images.unsplash.com/photo-1605488000363-f71ed0dd678e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8YWN0aW9uIGZpZ3VyZXx8fHx8fDE2OTQxMDI4MjA&ixlib=rb-4.0.3&q=80",
+      image: "https://www.shutterstock.com/shutterstock/photos/1940234269/display_1500/stock-photo-bangkok-thailand-may-action-figure-character-from-naruto-anime-japan-animation-cartoon-1940234269.jpg",
       link: "/shop?category=figure",
       description: "Detailed collectible figures of your favorite characters",
     },
     {
       name: "Keychains",
-      image: "https://images.unsplash.com/photo-1602178141781-ecc8d388c946?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8a2V5Y2hhaW58fHx8fHwxNjk0MTAyODQ0&ixlib=rb-4.0.3&q=80",
+      image: "https://www.shutterstock.com/shutterstock/photos/2277030036/display_1500/stock-photo-minsk-belarus-january-izuku-midoriya-deku-keychain-from-the-anime-my-hero-academia-on-a-2277030036.jpg",
       link: "/shop?category=keychain",
       description: "Cute and collectible anime keychains",
     },
     {
       name: "Plushies",
-      image: "https://images.unsplash.com/photo-1554825203-68321ddde262?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cGx1c2h8fHx8fHwxNjk0MTAyOTMx&ixlib=rb-4.0.3&q=80",
+      image: "https://www.shutterstock.com/shutterstock/photos/1902244096/display_1500/stock-photo-plush-toy-kaonashi-no-face-spirited-away-isolated-on-white-background-1902244096.jpg",
       link: "/shop?category=plushie",
       description: "Soft and huggable character plushies",
     },
