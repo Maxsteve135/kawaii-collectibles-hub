@@ -1,4 +1,3 @@
-
 export interface Product {
   id: number;
   name: string;
@@ -9,6 +8,7 @@ export interface Product {
   images: string[];
   description: string;
   stock: number;
+  useCustomImages?: boolean; // Add the missing property as optional
 }
 
 export interface Review {
