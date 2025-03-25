@@ -36,7 +36,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/2279927375/display_1500/stock-photo-zagreb-croatia-february-nezuko-and-tanjiro-are-characters-from-a-popular-anime-tv-series-2279927375.jpg"
     ],
     description: "High-quality wall poster featuring Tanjiro and Nezuko from Demon Slayer. This premium art print is made with archival inks on heavy matte paper for a stunning visual display. Perfect for any anime fan's room or collection.",
-    stock: 50
+    stock: 50,
+    useCustomImages: true
   },
   {
     id: 2,
@@ -51,7 +52,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/1953330517/display_1500/stock-photo-bangkok-thailand-may-levi-ackerman-action-figure-character-from-attack-on-titan-or-shingeki-1953330517.jpg"
     ],
     description: "Highly detailed action figure of Levi Ackerman from Attack on Titan. This meticulously crafted figure stands 24cm tall and features multiple articulation points for dynamic posing. Includes 3D maneuver gear accessories and display stand.",
-    stock: 25
+    stock: 25,
+    useCustomImages: true
   },
   {
     id: 3,
@@ -65,7 +67,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/2180356228/display_1500/stock-photo-zagreb-croatia-december-izuku-midoriya-deku-from-the-my-hero-academia-show-isolated-on-2180356228.jpg"
     ],
     description: "Cute and durable keychain featuring Izuku 'Deku' Midoriya from My Hero Academia. Made from high-quality PVC material with metal ring. Perfect for keys, bags, or as a collectible.",
-    stock: 100
+    stock: 100,
+    useCustomImages: true
   },
   {
     id: 4,
@@ -79,7 +82,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/2176634465/display_1500/stock-photo-belgrade-serbia-december-monkey-d-luffy-wanted-poster-dead-or-alive-the-protagonist-2176634465.jpg"
     ],
     description: "Premium art print featuring Monkey D. Luffy from One Piece. This limited edition poster is printed on high-quality museum-grade paper with archival inks that resist fading. Each print comes with a certificate of authenticity.",
-    stock: 30
+    stock: 30,
+    useCustomImages: true
   },
   {
     id: 5,
@@ -93,7 +97,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/1910764176/display_1500/stock-photo-minsk-belarus-january-kakashi-hatake-action-figure-character-from-naruto-shippuden-anime-1910764176.jpg"
     ],
     description: "Detailed Kakashi Hatake figure from Naruto Shippuden. This 22cm tall figure captures Kakashi in his iconic pose with Chidori. Features incredible detail from his Sharingan eye to his ninja vest. Comes with a display base.",
-    stock: 15
+    stock: 15,
+    useCustomImages: true
   },
   {
     id: 6,
@@ -107,7 +112,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/1902244105/display_1500/stock-photo-plush-toy-kaonashi-no-face-spirited-away-on-white-background-1902244105.jpg"
     ],
     description: "Soft and huggable No-Face (Kaonashi) plushie from Studio Ghibli's Spirited Away. This 30cm plush toy is made from premium soft materials and is perfect for cuddling or display. Official Studio Ghibli merchandise.",
-    stock: 40
+    stock: 40,
+    useCustomImages: true
   },
   {
     id: 7,
@@ -121,7 +127,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/1978636516/display_1500/stock-photo-bali-indonesia-sep-sun-goku-ultra-instinct-dragon-ball-super-broly-movie-poster-in-the-1978636516.jpg"
     ],
     description: "Dynamic poster featuring Goku in his powerful Ultra Instinct form from Dragon Ball Z. This high-quality print captures all the energy and detail of this iconic transformation. Printed on premium paper with vibrant colors.",
-    stock: 60
+    stock: 60,
+    useCustomImages: true
   },
   {
     id: 8,
@@ -135,7 +142,8 @@ export const products: Product[] = [
       "https://www.shutterstock.com/shutterstock/photos/2145235634/display_1500/stock-photo-bangkok-thailand-november-satoru-gojo-action-figure-character-from-jujutsu-kaisen-anime-2145235634.jpg"
     ],
     description: "Premium Gojo Satoru figure from Jujutsu Kaisen. This highly detailed 25cm figure captures Gojo's calm yet powerful presence with his iconic blindfold. Features special effects pieces to recreate his Infinity technique. Limited edition.",
-    stock: 10
+    stock: 10,
+    useCustomImages: true
   }
 ];
 
